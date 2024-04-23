@@ -16,6 +16,7 @@ class Regiset_Screen extends StatefulWidget {
 }
 
 class _Regiset_ScreenState extends State<Regiset_Screen> {
+  final formKey = GlobalKey<FormState>();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -23,44 +24,54 @@ class _Regiset_ScreenState extends State<Regiset_Screen> {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       builder: ((context, state) {
-        return Scaffold(
-          body: Column(
-            children: [
-              Text(
-                "SignUp".tr(),
-                style: Styles.TextStyle30,
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              CustomTextFormField(
-                hinttext: 'User Name',
-                text_Field_Icon: Icon(Icons.person),
-                validator: (value) {
-                  if (state is RegisterSuccsess) {}
-                },
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              CustomTextFormField(
-                hinttext: 'User Name',
-                text_Field_Icon: Icon(Icons.person),
-                validator: (value) {
-                  if (state is RegisterSuccsess) {}
-                },
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              CustomTextFormField(
-                hinttext: 'User Name',
-                text_Field_Icon: Icon(Icons.person),
-                validator: (value) {
-                  if (state is RegisterSuccsess) {}
-                },
-              ),
-            ],
+        return Form(
+          key: formKey,
+          child: Scaffold(
+            body: Column(
+              children: [
+                Text(
+                  "SignUp".tr(),
+                  style: Styles.TextStyle30,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                CustomTextFormField(
+                  hinttext: 'User Name',
+                  text_Field_Icon: Icon(Icons.person),
+                  validator: (value) {
+                    if (state is RegisterSuccsess) {}
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomTextFormField(
+                  hinttext: 'User Name',
+                  text_Field_Icon: Icon(Icons.person),
+                  validator: (value) {
+                    if (state is RegisterSuccsess) {}
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomTextFormField(
+                  hinttext: 'User Name',
+                  text_Field_Icon: Icon(Icons.person),
+                  validator: (value) {
+                    if (state is RegisterSuccsess) {}
+                  },
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {}
+                  },
+                  child: Text("Register"),
+                  minWidth: double.infinity,
+                )
+              ],
+            ),
           ),
         );
       }),

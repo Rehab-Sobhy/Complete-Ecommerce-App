@@ -10,7 +10,7 @@ import 'package:http/http.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(IntialAuthState());
 
-  void register({
+  static void register({
     required String name,
     required String phone,
     required String password,
