@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_commerce_app/auth/auth_cubit/auth_states.dart';
 
 // ignore: unused_import
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart' as https;
 import 'package:http/http.dart';
 
 class AuthCubit extends Cubit<AuthState> {
@@ -18,7 +18,7 @@ class AuthCubit extends Cubit<AuthState> {
       required String password}) async {
     emit(RegisterLoading());
     try {
-      Response response = await http.post(
+      Response response = await https.post(
         // request Url = base url + method url ( endpoint ) = https://student.valuxapps.com + /api/register
         Uri.parse('https://student.valuxapps.com/api/register'),
         body: {
