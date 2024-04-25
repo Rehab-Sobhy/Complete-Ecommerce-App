@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/core/utils/styles.dart';
+
+import '../../../core/utils/styles.dart';
 
 class EditItem extends StatelessWidget {
   final String title;
@@ -8,18 +9,19 @@ class EditItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
-
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(flex: 2,
+        Expanded(
+            flex: 2,
             child: Text(
               title,
               style: Styles.TextStyle18.copyWith(color: Colors.grey),
             )),
         Expanded(
-            flex: 5,
-            child: widget,),
+          flex: 5,
+          child: widget,
+        ),
       ],
     );
   }

@@ -5,6 +5,7 @@ import 'package:flutter_commerce_app/auth/auth_cubit/auth_cubit.dart';
 import 'package:flutter_commerce_app/auth/register.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = const AppBlocObserver();
   runApp(const MyApp());
 }
