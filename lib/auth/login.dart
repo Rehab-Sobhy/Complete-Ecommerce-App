@@ -90,7 +90,7 @@ class _Login_ScreenState extends State<Login_Screen> {
       listener: (context, state) {
         if (state is RegisterSuccsess) {
           Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => Regiset_Screen()));
+              MaterialPageRoute(builder: (context) => RegisterScreen()));
         }
       },
     );

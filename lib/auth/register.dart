@@ -108,16 +108,13 @@
 //     );
 //   }
 // }
-
-import 'package:code_app/modules/Screens/auth_screens/login_screen.dart';
-import 'package:code_app/shared/style/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_commerce_app/auth/login.dart';
 import 'package:flutter_commerce_app/core/utils/styles.dart';
-import '../../Widgets/alert_dialog.dart';
-import '../home_screen/home_screen.dart';
+import 'package:flutter_commerce_app/home_screen/home.dart';
+
 import 'auth_cubit/auth_cubit.dart';
 import 'auth_cubit/auth_states.dart';
 
@@ -131,12 +128,12 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubit, AuthStates>(
+    return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        if (state is RegisterLoadingState) {
-          showAlertDialog(
-              context: context,
-              backgroundColor: Colors.white,
+        if (state is RegisterLoading) {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
               content: AnimatedContainer(
                 duration: const Duration(seconds: 1),
                 curve: Curves.easeIn,
@@ -152,19 +149,40 @@ class RegisterScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-              ));
-        } else if (state is FailedToRegisterState) {
-          showAlertDialog(
+              ),
+            ),
+          );
+          // showAlertDialog(
+          //     context: context,
+          //     backgroundColor: Colors.white,
+          //     content: AnimatedContainer(
+          //       duration: const Duration(seconds: 1),
+          //       curve: Curves.easeIn,
+          //       child: Row(
+          //         children: [
+          //           const CupertinoActivityIndicator(color: mainColor),
+          //           SizedBox(
+          //             width: 12.5,
+          //           ),
+          //           const Text(
+          //             "wait",
+          //             style: TextStyle(fontWeight: FontWeight.w500),
+          //           ),
+          //         ],
+          //       ),
+          //     ));
+        } else if (state is RegisterFailed) {
+          showDialog(
               context: context,
-              backgroundColor: Colors.red,
-              content: Text(
-                state.message,
-                textDirection: TextDirection.rtl,
-              ));
+              builder: (context) => AlertDialog(
+                      content: Text(
+                    state.message,
+                    textDirection: TextDirection.rtl,
+                  )));
         } else if (state is RegisterSuccsess) {
           Navigator.pop(context); // عشان يخرج من alertDialog
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => HomeScreen()));
+              context, MaterialPageRoute(builder: (context) => HomePage()));
         }
       },
       builder: (context, state) {
