@@ -44,4 +44,28 @@ class AuthCubit extends Cubit<AuthState> {
       emit(RegisterFailed(message: e.toString()));
     }
   }
+
+  void login({required String password, required String email}) async {
+    emit(LoginLoading());
+    Response response = await https
+        .post(Uri.parse('https://student.valuxapps.com/api/register'), body: {
+      'password': password,
+      'email': email,
+    }, headers: {
+      "lang": "eng"
+    });
+    if (response.statusCode == 200) {
+      try {
+        var data = jsonDecode(response.body);
+
+        if (data['message'] == true) {
+          emit(LoginSuccess());
+        } else {
+          emit(LoginFailed(message: data['message']));
+        }
+      } on Exception catch (e) {
+        emit(LoginFailed(message: e.toString()));
+      }
+    }
+  }
 }

@@ -11,11 +11,11 @@ class RegisterFailed extends AuthState {
 
 class RegisterLoading extends AuthState {}
 
-class LginSuccsess extends AuthState {}
+class LoginSuccess extends AuthState {}
 
-class LginFailed extends AuthState {
+class LoginFailed extends AuthState {
   late String message;
-  LginFailed({required this.message});
+  LoginFailed({required this.message});
 }
 
-class LginLoading extends AuthState {}
+class LoginLoading extends AuthState {}
