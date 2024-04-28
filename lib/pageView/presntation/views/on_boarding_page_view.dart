@@ -104,8 +104,13 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
 }
 
 List pageViewsItems = [
-  const PageViewItem(image: "assets/images/R.png"),
   const PageViewItem(
-      image:
-          "assets/images/5e37be527c077bdd56efa8e5_5c812908b78f13958baa3168_7Asset202.webp"),
+    image: "assets/images/R.png",
+    text: 'Enjoy Easy Shopping ',
+  ),
+  const PageViewItem(
+    image:
+        "assets/images/5e37be527c077bdd56efa8e5_5c812908b78f13958baa3168_7Asset202.webp",
+    text: 'Big Salle on our products',
+  ),
 ];
