@@ -25,7 +25,10 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const Text("Do shopping Now 🔥"),
+            const Text(
+              "Do shopping Now 🔥",
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(
               height: 30,
             ),
