@@ -42,25 +42,6 @@ class RegisterScreen extends StatelessWidget {
               ),
             ),
           );
-          // showAlertDialog(
-          //     context: context,
-          //     backgroundColor: Colors.white,
-          //     content: AnimatedContainer(
-          //       duration: const Duration(seconds: 1),
-          //       curve: Curves.easeIn,
-          //       child: Row(
-          //         children: [
-          //           const CupertinoActivityIndicator(color: mainColor),
-          //           SizedBox(
-          //             width: 12.5,
-          //           ),
-          //           const Text(
-          //             "wait",
-          //             style: TextStyle(fontWeight: FontWeight.w500),
-          //           ),
-          //         ],
-          //       ),
-          //     ));
         } else if (state is RegisterFailed) {
           showDialog(
               context: context,
@@ -194,7 +175,7 @@ class RegisterScreen extends StatelessWidget {
         if (controller.text.isNotEmpty) {
           return null;
         } else {
-          return "$hintTitle must not be empty!";
+          return "$hintTitle must not be empty!😔";
         }
       },
     );
