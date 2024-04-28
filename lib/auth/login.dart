@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_commerce_app/auth/login.dart';
+import 'package:flutter_commerce_app/auth/register.dart';
 import 'package:flutter_commerce_app/core/utils/styles.dart';
 import 'package:flutter_commerce_app/home_screen/home.dart';
 
@@ -107,9 +108,7 @@ class Login_Screen extends StatelessWidget {
                           child: FittedBox(
                               fit: BoxFit.scaleDown,
                               child: Text(
-                                state is RegisterLoading
-                                    ? "Loading..."
-                                    : "Login",
+                                state is LoginLoading ? "Loading..." : "Login",
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16.5,
@@ -122,7 +121,7 @@ class Login_Screen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text('''You don't have an account ''',
+                            const Text('''You don't have an account 😔''',
                                 style: TextStyle(color: Colors.black)),
                             SizedBox(
                               width: 4,
@@ -132,7 +131,8 @@ class Login_Screen extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => HomePage()));
+                                        builder: (context) =>
+                                            RegisterScreen()));
                               },
                               child: const Text('Register Now 🥰',
                                   style: TextStyle(
