@@ -32,14 +32,13 @@ class _Splash_ScreenState extends State<Splash_Screen> {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        color: secondColor,
+        color: mainColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               "🅔 🅒🅞🅜🅜🅔🅡🅒🅔 🅐🅟🅟",
-              style: Styles.TextStyle30.copyWith(
-                  color: Color.fromRGBO(0, 0, 0, 0.851)),
+              style: Styles.TextStyle30.copyWith(color: Colors.white),
             ),
           ],
         ),
