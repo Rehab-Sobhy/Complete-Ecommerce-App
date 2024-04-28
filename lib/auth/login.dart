@@ -121,7 +121,7 @@ class Login_Screen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text('''You don't have an account ? ''',
+                            const Text('''Don't have an account ? ''',
                                 style: TextStyle(color: Colors.black)),
                             SizedBox(
                               width: 4,

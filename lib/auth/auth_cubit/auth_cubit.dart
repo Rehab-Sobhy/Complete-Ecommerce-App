@@ -58,7 +58,7 @@ class AuthCubit extends Cubit<AuthState> {
       try {
         var data = jsonDecode(response.body);
 
-        if (data['message'] == true) {
+        if (data['status'] == true) {
           emit(LoginSuccess());
         } else {
           emit(LoginFailed(message: data['message']));
