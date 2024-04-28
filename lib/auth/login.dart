@@ -8,12 +8,12 @@ import 'package:flutter_commerce_app/home_screen/home.dart';
 import 'auth_cubit/auth_cubit.dart';
 import 'auth_cubit/auth_states.dart';
 
-class RegisterScreen extends StatelessWidget {
+class Login_Screen extends StatelessWidget {
   final emailController = TextEditingController();
 
   final passwordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  RegisterScreen({Key? key}) : super(key: key);
+  Login_Screen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
