@@ -21,34 +21,38 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-            child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              const Text("Do shopping Now 🔥"),
-              const SizedBox(
-                height: 30,
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            const Text("Do shopping Now 🔥"),
+            const SizedBox(
+              height: 30,
+            ),
+            const Text("Categories"),
+            const SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              height: 200,
+              child: Expanded(
+                child: ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        padding: EdgeInsets.all(5),
+                        height: 80,
+                        width: 80,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle, image: images[index]),
+                      );
+                    }),
               ),
-              const Text("Categories"),
-              const SizedBox(
-                height: 10,
-              ),
-              ListView.builder(itemBuilder: (context, index) {
-                return Container(
-                  padding: EdgeInsets.all(5),
-                  height: 80,
-                  width: 80,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle, image: images[index]),
-                );
-              })
-            ],
-          ),
-        )),
-      ],
-    ));
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
