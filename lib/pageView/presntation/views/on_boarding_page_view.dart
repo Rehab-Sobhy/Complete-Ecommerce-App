@@ -84,17 +84,24 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
                   }
                 },
                 child: Container(
-                  color: const Color.fromARGB(255, 63, 6, 117),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: mainColor,
+                  ),
+
                   // ignore: sort_child_properties_last
-                  child: Text(
-                      textAlign: TextAlign.center,
-                      currentindex == pageViewsItems.length - 1
-                          ? "Get Started"
-                          : "Next",
-                      style: Styles.TextStyle16.copyWith(
-                          color: Colors.white, fontWeight: FontWeight.bold)),
-                  height: 45,
-                  width: 300,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Text(
+                        textAlign: TextAlign.center,
+                        currentindex == pageViewsItems.length - 1
+                            ? "Get Started"
+                            : "Next",
+                        style: Styles.TextStyle16.copyWith(
+                            color: Colors.white, fontWeight: FontWeight.bold)),
+                  ),
+                  height: 40,
+                  width: double.infinity,
                 )),
           ],
         ),
