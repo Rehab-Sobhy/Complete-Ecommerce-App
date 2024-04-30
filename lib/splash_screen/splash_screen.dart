@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_commerce_app/core/utils/styles.dart';
 import 'package:flutter_commerce_app/pageView/presntation/views/on_boarding_page_view.dart';
+import 'package:flutter_commerce_app/shared_preferences/shared_pref.dart';
 
 class Splash_Screen extends StatefulWidget {
   const Splash_Screen({super.key});
@@ -15,6 +16,7 @@ class Splash_Screen extends StatefulWidget {
 
 // ignore: camel_case_types
 class _Splash_ScreenState extends State<Splash_Screen> {
+  String token = CachNetwork().getData(key: 'token');
   @override
   void initState() {
     Future.delayed(Duration(seconds: 2), () {

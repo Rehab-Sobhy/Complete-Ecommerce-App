@@ -1,7 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_commerce_app/auth/login.dart';
+
 import 'package:flutter_commerce_app/auth/register.dart';
 import 'package:flutter_commerce_app/core/utils/styles.dart';
 import 'package:flutter_commerce_app/home_screen/home.dart';
@@ -29,8 +31,8 @@ class Login_Screen extends StatelessWidget {
                 curve: Curves.easeIn,
                 child: Row(
                   children: [
-                    const CupertinoActivityIndicator(color: mainColor),
-                    SizedBox(
+                    CupertinoActivityIndicator(color: mainColor),
+                    const SizedBox(
                       width: 12.5,
                     ),
                     const Text(
@@ -52,8 +54,8 @@ class Login_Screen extends StatelessWidget {
                   )));
         } else if (state is LoginSuccess) {
           Navigator.pop(context); // عشان يخرج من alertDialog
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => HomePage()));
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const HomePage()));
         }
       },
       builder: (context, state) {
@@ -72,23 +74,23 @@ class Login_Screen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           "Sign IN",
                           style: TextStyle(
                               fontSize: 22.5, fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         textFormItem(
                             hintTitle: "Email", controller: emailController),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         textFormItem(
                             hintTitle: "Password",
                             controller: passwordController),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         MaterialButton(
@@ -109,13 +111,13 @@ class Login_Screen extends StatelessWidget {
                               fit: BoxFit.scaleDown,
                               child: Text(
                                 state is LoginLoading ? "Loading..." : "Login",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16.5,
                                     color: Colors.white),
                               )),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Row(
@@ -123,7 +125,7 @@ class Login_Screen extends StatelessWidget {
                           children: [
                             const Text('''Don't have an account ? ''',
                                 style: TextStyle(color: Colors.black)),
-                            SizedBox(
+                            const SizedBox(
                               width: 4,
                             ),
                             InkWell(

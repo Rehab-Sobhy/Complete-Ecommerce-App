@@ -13,7 +13,7 @@ class CachNetwork {
   }
 
   void getData({required String key}) {
-    sharedpref.getString(key);
+    sharedpref.getString(key) ?? " ";
   }
 
   void delete({required String key}) {
