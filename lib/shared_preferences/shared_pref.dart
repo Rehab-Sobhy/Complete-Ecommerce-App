@@ -12,8 +12,8 @@ class CachNetwork {
     return await sharedpref.setString(key, value);
   }
 
-  void getData({required String key}) {
-    sharedpref.getString(key) ?? " ";
+  String getData({required String key}) {
+    return sharedpref.getString(key) ?? " ";
   }
 
   void delete({required String key}) {

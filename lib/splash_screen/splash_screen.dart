@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_commerce_app/core/utils/styles.dart';
+import 'package:flutter_commerce_app/home_screen/home.dart';
 import 'package:flutter_commerce_app/pageView/presntation/views/on_boarding_page_view.dart';
 import 'package:flutter_commerce_app/shared_preferences/shared_pref.dart';
 
@@ -20,8 +21,11 @@ class _Splash_ScreenState extends State<Splash_Screen> {
   @override
   void initState() {
     Future.delayed(Duration(seconds: 2), () {
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => OnBoardingPageView()));
+      token != null || token != " "
+          ? Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => HomePage()))
+          : Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => OnBoardingPageView()));
     });
     // TODO: implement initState
     super.initState();
