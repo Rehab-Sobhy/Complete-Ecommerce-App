@@ -4,13 +4,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_commerce_app/auth/auth_cubit/auth_cubit.dart';
 import 'package:flutter_commerce_app/auth/register.dart';
 import 'package:flutter_commerce_app/home_screen/home.dart';
+import 'package:flutter_commerce_app/shared_preferences/shared_pref.dart';
 import 'package:flutter_commerce_app/splash_screen/splash_screen.dart';
 
 import 'shared/bloc_observe.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
+  await CachNetwork.cachIntialization();
   runApp(const MyApp());
 }
 

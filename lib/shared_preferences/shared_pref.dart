@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class CachNetwork {
   static late SharedPreferences sharedpref;
 
-  void cachIntialization() async {
+  static Future cachIntialization() async {
     sharedpref = await SharedPreferences.getInstance();
   }
 
