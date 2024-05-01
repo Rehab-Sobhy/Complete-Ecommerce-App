@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
+
 // ignore: implementation_imports
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_commerce_app/core/utils/styles.dart';
 import 'package:flutter_commerce_app/home_screen/home.dart';
 import 'package:flutter_commerce_app/pageView/presntation/views/on_boarding_page_view.dart';
 import 'package:flutter_commerce_app/shared_preferences/shared_pref.dart';
 
+// ignore: camel_case_types
 class Splash_Screen extends StatefulWidget {
   const Splash_Screen({super.key});
 
@@ -20,12 +20,14 @@ class _Splash_ScreenState extends State<Splash_Screen> {
   String token = CachNetwork().getData(key: 'token');
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       token != null || token != " "
-          ? Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => HomePage()))
-          : Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => OnBoardingPageView()));
+          ? Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const HomePage()))
+          : Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const OnBoardingPageView()));
     });
     // TODO: implement initState
     super.initState();

@@ -7,11 +7,22 @@ class UserModel {
 
   UserModel({this.email, this.image, this.name, this.phone, this.token});
 
-  UserModel.fromJson(Map<String, dynamic> data) {
+  UserModel.fromJson({required Map<String, dynamic> data}) {
     name = data['name'];
-    name = data['phone'];
-    name = data['token'];
-    name = data['email'];
-    name = data['image'];
+    phone = data['phone'];
+    token = data['token'];
+    email = data['email'];
+    image = data['image'];
+  }
+
+  //metod convert to map
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'phone': phone,
+      'token': token,
+      'email': email,
+      'image': image,
+    };
   }
 }
