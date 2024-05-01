@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_commerce_app/account/presentation/views/account_view.dart';
 import 'package:flutter_commerce_app/auth/login.dart';
 import 'package:flutter_commerce_app/core/utils/styles.dart';
 import 'package:flutter_commerce_app/home_screen/home.dart';
@@ -53,7 +54,7 @@ class RegisterScreen extends StatelessWidget {
         } else if (state is RegisterSuccsess) {
           Navigator.pop(context); // عشان يخرج من alertDialog
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => HomePage()));
+              context, MaterialPageRoute(builder: (context) => AccountView()));
         }
       },
       builder: (context, state) {

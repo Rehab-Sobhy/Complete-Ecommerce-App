@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_commerce_app/account/presentation/views/account_view.dart';
 import 'package:flutter_commerce_app/auth/auth_cubit/auth_cubit.dart';
 import 'package:flutter_commerce_app/auth/register.dart';
 import 'package:flutter_commerce_app/home_screen/home.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: Splash_Screen(),
+          home: AccountView(),
           debugShowCheckedModeBanner: false,
         ));
   }

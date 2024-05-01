@@ -19,19 +19,19 @@ class Splash_Screen extends StatefulWidget {
 class _Splash_ScreenState extends State<Splash_Screen> {
   String token = CachNetwork().getData(key: 'token');
   @override
-  void initState() {
-    Future.delayed(const Duration(seconds: 2), () {
-      token != null || token != " "
-          ? Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const HomePage()))
-          : Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const OnBoardingPageView()));
-    });
-    // TODO: implement initState
-    super.initState();
-  }
+  // void initState() {
+  //   Future.delayed(const Duration(seconds: 2), () {
+  //     token != null || token != " "
+  //         ? Navigator.pushReplacement(context,
+  //             MaterialPageRoute(builder: (context) => const HomePage()))
+  //         : Navigator.pushReplacement(
+  //             context,
+  //             MaterialPageRoute(
+  //                 builder: (context) => const OnBoardingPageView()));
+  //   });
+  //   // TODO: implement initState
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
