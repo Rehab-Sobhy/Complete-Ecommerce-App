@@ -25,7 +25,9 @@ class _HomePageState extends State<HomePage> {
                 shrinkWrap: true,
                 children: [
                   cubit.banners.isEmpty
-                      ? CircularProgressIndicator()
+                      ? Center(
+                          child: Container(
+                              width: 100, child: CircularProgressIndicator()))
                       : SizedBox(
                           width: double.infinity,
                           height: 130,
@@ -33,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                             itemCount: cubit.banners.length,
                             itemBuilder: (BuildContext context, int index) {
                               return Container(
-                                margin: EdgeInsets.all(7),
+                                margin: EdgeInsets.only(right: 12),
                                 child: Image.network(
                                   cubit.banners[index].url!,
                                   fit: BoxFit.fill,
