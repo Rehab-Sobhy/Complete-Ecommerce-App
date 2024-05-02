@@ -22,3 +22,9 @@ class GetCategoriesSuccess extends LayoutCubitState {}
 class GetCategoriesFailed extends LayoutCubitState {}
 
 class GetCategoriesLoading extends LayoutCubitState {}
+
+class GetProductSuccess extends LayoutCubitState {}
+
+class GetProductFailed extends LayoutCubitState {}
+
+class GetProductLoading extends LayoutCubitState {}
