@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_commerce_app/Features/lay_out_screen/lay0ut_cubit/layout_cubit_states.dart';
 import 'package:flutter_commerce_app/models/banar_model.dart';
 import 'package:flutter_commerce_app/models/category.dart';
+import 'package:flutter_commerce_app/models/product_model.dart';
 import 'package:flutter_commerce_app/models/user_model.dart';
 import 'package:flutter_commerce_app/shared/shared.dart';
 import 'package:http/http.dart' as https;
@@ -14,6 +15,7 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
 
   UserModel? userModel;
   List<BannerModel> banners = [];
+  List<ProductModel> products = [];
   List<CategoriesModel> categories = [];
   void getData() async {
     Response response = await https
@@ -54,6 +56,20 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
       emit(GetCategoriesSuccess());
     } else {
       emit(GetCategoriesFailed());
+    }
+  }
+
+  Future<void> getProductsData() async {
+    Response response =
+        await https.get(Uri.parse("https://student.valuxapps.com/api/home"));
+    final responseBody = jsonDecode(response.body);
+    if (responseBody['status'] == true) {
+      for (var item in responseBody['data']['data']) {
+        banners.add(BannerModel.fromJson(data: item));
+      }
+      emit(GetProductSuccess());
+    } else {
+      emit(GetProductFailed());
     }
   }
 }
