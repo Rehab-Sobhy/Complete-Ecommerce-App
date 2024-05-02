@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_commerce_app/auth/auth_cubit/auth_states.dart';
+import 'package:flutter_commerce_app/Features/auth_cubit/auth_states.dart';
 import 'package:flutter_commerce_app/shared_preferences/shared_pref.dart';
 
 // ignore: unused_import

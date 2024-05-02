@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_commerce_app/account/presentation/views/account_view.dart';
-import 'package:flutter_commerce_app/auth/login.dart';
+import 'package:flutter_commerce_app/Features/account/presentation/views/account_view.dart';
+import 'package:flutter_commerce_app/Features/auth/login.dart';
 import 'package:flutter_commerce_app/core/utils/styles.dart';
-import 'package:flutter_commerce_app/home_screen/home.dart';
+import 'package:flutter_commerce_app/Features/lay_out_screen/home.dart';
 
-import 'auth_cubit/auth_cubit.dart';
-import 'auth_cubit/auth_states.dart';
+import '../auth_cubit/auth_cubit.dart';
+import '../auth_cubit/auth_states.dart';
 
 class RegisterScreen extends StatelessWidget {
   final emailController = TextEditingController();

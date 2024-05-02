@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_commerce_app/auth/register.dart';
+import 'package:flutter_commerce_app/Features/auth/register.dart';
 import 'package:flutter_commerce_app/core/utils/styles.dart';
-import 'package:flutter_commerce_app/pageView/presntation/views/page_view_item.dart';
+import 'package:flutter_commerce_app/Features/pageView/presntation/views/page_view_item.dart';
 
 class OnBoardingPageView extends StatefulWidget {
   const OnBoardingPageView({super.key});

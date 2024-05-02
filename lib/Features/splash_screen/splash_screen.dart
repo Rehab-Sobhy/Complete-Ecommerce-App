@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 // ignore: implementation_imports
 
 import 'package:flutter_commerce_app/core/utils/styles.dart';
-import 'package:flutter_commerce_app/home_screen/home.dart';
-import 'package:flutter_commerce_app/pageView/presntation/views/on_boarding_page_view.dart';
+import 'package:flutter_commerce_app/Features/lay_out_screen/home.dart';
+import 'package:flutter_commerce_app/Features/pageView/presntation/views/on_boarding_page_view.dart';
 import 'package:flutter_commerce_app/shared_preferences/shared_pref.dart';
 
 // ignore: camel_case_types

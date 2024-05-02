@@ -1,13 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_commerce_app/account/presentation/views/account_view.dart';
-import 'package:flutter_commerce_app/auth/auth_cubit/auth_cubit.dart';
-import 'package:flutter_commerce_app/auth/register.dart';
-import 'package:flutter_commerce_app/home_screen/home.dart';
-import 'package:flutter_commerce_app/lay0ut_cubit/layout_cubit.dart';
+import 'package:flutter_commerce_app/Features/account/presentation/views/account_view.dart';
+import 'package:flutter_commerce_app/Features/auth_cubit/auth_cubit.dart';
+import 'package:flutter_commerce_app/Features/auth/register.dart';
+import 'package:flutter_commerce_app/Features/lay_out_screen/home.dart';
+import 'package:flutter_commerce_app/Features/lay_out_screen/lay0ut_cubit/layout_cubit.dart';
 import 'package:flutter_commerce_app/shared_preferences/shared_pref.dart';
-import 'package:flutter_commerce_app/splash_screen/splash_screen.dart';
+import 'package:flutter_commerce_app/Features/splash_screen/splash_screen.dart';
 
 import 'shared/bloc_observe.dart';
 
