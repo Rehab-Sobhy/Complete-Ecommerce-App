@@ -5,7 +5,7 @@ import 'package:flutter_commerce_app/Features/account/presentation/views/account
 import 'package:flutter_commerce_app/Features/auth_cubit/auth_cubit.dart';
 import 'package:flutter_commerce_app/Features/auth/register.dart';
 import 'package:flutter_commerce_app/Features/lay_out_screen/LayOutScreen.dart';
-import 'package:flutter_commerce_app/Features/lay_out_screen/home.dart';
+
 import 'package:flutter_commerce_app/Features/lay_out_screen/lay0ut_cubit/layout_cubit.dart';
 import 'package:flutter_commerce_app/shared_preferences/shared_pref.dart';
 import 'package:flutter_commerce_app/Features/splash_screen/splash_screen.dart';
