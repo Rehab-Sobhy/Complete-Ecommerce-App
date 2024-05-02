@@ -12,7 +12,7 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
   LayOutCubit() : super(LayOutIntialize());
 
   UserModel? userModel;
-  BannarModel? bannarModel;
+  List<BannarModel> banners = [];
   void getData() async {
     Response response = await https
         .get(Uri.parse("https://student.valuxapps.com/api/profile"), headers: {
@@ -35,7 +35,9 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
     );
     var responseDta = jsonDecode(response.body);
     if (responseDta['status'] == true) {
-      bannarModel = BannarModel.fromJson(data: responseDta['data']);
+      for (var item in responseDta['data']) {
+        banners.add(BannarModel.fromJson(data: item));
+      }
       emit(GetBannerSuccess());
     } else
       emit(GetBannerFailed(error: responseDta['message']));
