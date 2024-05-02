@@ -10,3 +10,12 @@ class GetFailed extends LayoutCubitState {
 }
 
 class GetLoading extends LayoutCubitState {}
+
+class GetBannerSuccess extends LayoutCubitState {}
+
+class GetBannerFailed extends LayoutCubitState {
+  String error;
+  GetBannerFailed({required this.error});
+}
+
+class GetBannerLoading extends LayoutCubitState {}

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_commerce_app/lay0ut_cubit/layout_cubit_states.dart';
+import 'package:flutter_commerce_app/models/banar_model.dart';
 import 'package:flutter_commerce_app/models/user_model.dart';
 import 'package:flutter_commerce_app/shared/shared.dart';
 import 'package:http/http.dart' as https;
@@ -9,7 +10,9 @@ import 'package:http/http.dart';
 
 class LayOutCubit extends Cubit<LayoutCubitState> {
   LayOutCubit() : super(LayOutIntialize());
+
   UserModel? userModel;
+  BannarModel? bannarModel;
   void getData() async {
     Response response = await https
         .get(Uri.parse("https://student.valuxapps.com/api/profile"), headers: {
@@ -22,5 +25,19 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
       emit(GetSuccess());
     } else
       emit(GetFailed(error: responseData['message']));
+  }
+
+  void getBannarData() async {
+    emit(GetBannerLoading());
+    Response response = await https.get(
+      Uri.parse("https://student.valuxapps.com/api/bannars"),
+      headers: {"lang": "en"},
+    );
+    var responseDta = jsonDecode(response.body);
+    if (responseDta['status'] == true) {
+      bannarModel = BannarModel.fromJson(data: responseDta['data']);
+      emit(GetBannerSuccess());
+    } else
+      emit(GetBannerFailed(error: responseDta['message']));
   }
 }
