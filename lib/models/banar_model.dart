@@ -1,9 +1,10 @@
 class BannarModel {
   String? url;
   String? id;
+  //constructor 
   BannarModel({required this.id, required this.url});
 
-  //refactoring
+  //refactoring==named constructor 
   BannarModel.fromJson({required Map<String, dynamic> data}) {
     id = data['id'];
     url = data['url'];
