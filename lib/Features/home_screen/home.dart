@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                           child: PageView.builder(
                               controller: pageController,
                               physics: const BouncingScrollPhysics(),
-                              itemCount: 3,
+                              itemCount: cubit.banners.length,
                               itemBuilder: (context, index) {
                                 return Image.network(
                                   cubit.banners[index].url!,
@@ -65,7 +65,53 @@ class _HomePageState extends State<HomePage> {
                           dotColor: mainColor,
                           activeDotColor: secondColor),
                     ),
-                  )
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    children: [
+                      const Text(
+                        "Categories",
+                        style: Styles.TextStyle30,
+                      ),
+                      const Text(
+                        "View All",
+                        style: Styles.TextStyle20,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  cubit.categories.isEmpty
+                      ? const Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : SizedBox(
+                          height: 150,
+                          width: double.infinity,
+                          child: ListView.separated(
+                            scrollDirection: Axis.horizontal,
+                            physics: const BouncingScrollPhysics(),
+                            itemCount: cubit.categories.length,
+                            itemBuilder: (context, index) {
+                              return Image.network(
+                                cubit.categories[index].url!,
+                                fit: BoxFit.fill,
+                              );
+                            },
+                            separatorBuilder:
+                                (BuildContext context, int index) {
+                              return const SizedBox(
+                                height: 20,
+                              );
+                            },
+                          ),
+                        ),
+                  const SizedBox(
+                    height: 20,
+                  ),
                 ],
               ),
             ),
