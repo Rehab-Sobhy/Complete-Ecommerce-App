@@ -24,8 +24,8 @@ class _Splash_ScreenState extends State<Splash_Screen> {
   void initState() {
     Future.delayed(const Duration(seconds: 2), () {
       token != null || token != " "
-          ? Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const HomePage()))
+          ? Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => HomePage()))
           : Navigator.pushReplacement(
               context,
               MaterialPageRoute(
