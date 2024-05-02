@@ -54,8 +54,8 @@ class Login_Screen extends StatelessWidget {
                   )));
         } else if (state is LoginSuccess) {
           Navigator.pop(context); // عشان يخرج من alertDialog
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const HomePage()));
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => HomePage()));
         }
       },
       builder: (context, state) {
