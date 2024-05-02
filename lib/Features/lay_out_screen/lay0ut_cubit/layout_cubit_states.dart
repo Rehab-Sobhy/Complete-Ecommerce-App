@@ -16,3 +16,9 @@ class GetBannerSuccess extends LayoutCubitState {}
 class GetBannerFailed extends LayoutCubitState {}
 
 class GetBannerLoading extends LayoutCubitState {}
+
+class GetCategoriesSuccess extends LayoutCubitState {}
+
+class GetCategoriesFailed extends LayoutCubitState {}
+
+class GetCategoriesLoading extends LayoutCubitState {}

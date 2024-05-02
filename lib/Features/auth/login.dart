@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_commerce_app/Features/auth/register.dart';
+import 'package:flutter_commerce_app/Features/home_screen/home.dart';
 import 'package:flutter_commerce_app/core/utils/styles.dart';
-import 'package:flutter_commerce_app/Features/lay_out_screen/home.dart';
 
 import '../auth_cubit/auth_cubit.dart';
 import '../auth_cubit/auth_states.dart';
