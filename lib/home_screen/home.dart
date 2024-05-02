@@ -6,13 +6,14 @@ import 'package:flutter_commerce_app/lay0ut_cubit/layout_cubit.dart';
 import 'package:flutter_commerce_app/lay0ut_cubit/layout_cubit_states.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  final pageController = PageController();
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<LayOutCubit>(context);
@@ -25,25 +26,23 @@ class _HomePageState extends State<HomePage> {
                 shrinkWrap: true,
                 children: [
                   cubit.banners.isEmpty
-                      ? Center(
-                          child: Container(
-                              width: 100, child: CircularProgressIndicator()))
+                      ? const Center(
+                          child: CircularProgressIndicator(),
+                        )
                       : SizedBox(
+                          height: 150,
                           width: double.infinity,
-                          height: 130,
                           child: PageView.builder(
-                            itemCount: cubit.banners.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return Container(
-                                margin: EdgeInsets.only(right: 12),
-                                child: Image.network(
+                              controller: pageController,
+                              physics: const BouncingScrollPhysics(),
+                              itemCount: 3,
+                              itemBuilder: (context, index) {
+                                return Image.network(
                                   cubit.banners[index].url!,
                                   fit: BoxFit.fill,
-                                ),
-                              );
-                            },
-                          ),
-                        )
+                                );
+                              }),
+                        ),
                 ],
               ),
             ),
