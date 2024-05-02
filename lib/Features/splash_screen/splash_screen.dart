@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_commerce_app/Features/home_screen/home.dart';
 
 // ignore: implementation_imports
 
 import 'package:flutter_commerce_app/core/utils/styles.dart';
 
 import 'package:flutter_commerce_app/shared_preferences/shared_pref.dart';
+
+import '../pageView/presntation/views/on_boarding_page_view.dart';
 
 // ignore: camel_case_types
 class Splash_Screen extends StatefulWidget {
