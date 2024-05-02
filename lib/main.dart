@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_commerce_app/Features/account/presentation/views/account_view.dart';
 import 'package:flutter_commerce_app/Features/auth_cubit/auth_cubit.dart';
 import 'package:flutter_commerce_app/Features/auth/register.dart';
+import 'package:flutter_commerce_app/Features/lay_out_screen/LayOutScreen.dart';
 import 'package:flutter_commerce_app/Features/lay_out_screen/home.dart';
 import 'package:flutter_commerce_app/Features/lay_out_screen/lay0ut_cubit/layout_cubit.dart';
 import 'package:flutter_commerce_app/shared_preferences/shared_pref.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: HomePage(),
+          home: HomeScreen(),
           debugShowCheckedModeBanner: false,
         ));
   }
