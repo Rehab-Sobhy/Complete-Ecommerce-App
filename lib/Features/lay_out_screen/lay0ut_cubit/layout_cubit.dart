@@ -60,11 +60,14 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
   }
 
   Future<void> getProductsData() async {
-    Response response =
-        await https.get(Uri.parse("https://student.valuxapps.com/api/home"));
+    Response response = await https
+        .get(Uri.parse("https://student.valuxapps.com/api/home"), headers: {
+      'Authorization': token!,
+      "lang": "en",
+    });
     final responseBody = jsonDecode(response.body);
     if (responseBody['status'] == true) {
-      for (var item in responseBody['data']['data']) {
+      for (var item in responseBody['data']['products']) {
         banners.add(BannerModel.fromJson(data: item));
       }
       emit(GetProductSuccess());
