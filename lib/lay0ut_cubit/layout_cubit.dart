@@ -13,6 +13,7 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
 
   UserModel? userModel;
   List<BannerModel> banners = [];
+
   void getData() async {
     Response response = await https
         .get(Uri.parse("https://student.valuxapps.com/api/profile"), headers: {
@@ -27,7 +28,7 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
       emit(GetFailed(error: responseData['message']));
   }
 
-  void getBannersData() async {
+  Future<void> getBannersData() async {
     Response response =
         await https.get(Uri.parse("https://student.valuxapps.com/api/banners"));
     final responseBody = jsonDecode(response.body);
