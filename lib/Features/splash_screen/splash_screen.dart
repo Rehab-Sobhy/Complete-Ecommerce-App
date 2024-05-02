@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 // ignore: implementation_imports
 
 import 'package:flutter_commerce_app/core/utils/styles.dart';
-import 'package:flutter_commerce_app/Features/lay_out_screen/home.dart';
-import 'package:flutter_commerce_app/Features/pageView/presntation/views/on_boarding_page_view.dart';
+
 import 'package:flutter_commerce_app/shared_preferences/shared_pref.dart';
 
 // ignore: camel_case_types
@@ -19,19 +18,19 @@ class Splash_Screen extends StatefulWidget {
 class _Splash_ScreenState extends State<Splash_Screen> {
   String token = CachNetwork().getData(key: 'token');
   @override
-  // void initState() {
-  //   Future.delayed(const Duration(seconds: 2), () {
-  //     token != null || token != " "
-  //         ? Navigator.pushReplacement(context,
-  //             MaterialPageRoute(builder: (context) => const HomePage()))
-  //         : Navigator.pushReplacement(
-  //             context,
-  //             MaterialPageRoute(
-  //                 builder: (context) => const OnBoardingPageView()));
-  //   });
-  //   // TODO: implement initState
-  //   super.initState();
-  // }
+  void initState() {
+    Future.delayed(const Duration(seconds: 2), () {
+      token != null || token != " "
+          ? Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const HomePage()))
+          : Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const OnBoardingPageView()));
+    });
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
