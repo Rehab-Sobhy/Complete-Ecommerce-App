@@ -51,9 +51,9 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
       for (var item in responseBody['data']['data']) {
         banners.add(BannerModel.fromJson(data: item));
       }
-      emit(GetBannerSuccess());
+      emit(GetCategoriesSuccess());
     } else {
-      emit(GetBannerFailed());
+      emit(GetCategoriesFailed());
     }
   }
 }
