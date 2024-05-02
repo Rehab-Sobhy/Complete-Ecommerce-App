@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_commerce_app/account/presentation/views/edit_item.dart';
-import 'package:flutter_commerce_app/account/profile_cubit/layout_cubit.dart';
+import 'package:flutter_commerce_app/lay0ut_cubit/layout_cubit.dart';
 import 'package:flutter_commerce_app/models/user_model.dart';
 
 import '../../../core/utils/styles.dart';

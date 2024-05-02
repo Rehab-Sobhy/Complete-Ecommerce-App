@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_commerce_app/account/profile_cubit/layout_cubit_states.dart';
+import 'package:flutter_commerce_app/lay0ut_cubit/layout_cubit_states.dart';
 import 'package:flutter_commerce_app/models/user_model.dart';
 import 'package:flutter_commerce_app/shared/shared.dart';
 import 'package:http/http.dart' as https;
