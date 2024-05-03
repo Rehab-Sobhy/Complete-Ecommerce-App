@@ -76,9 +76,9 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
     }
   }
 
-  List<ProductModel> filterproducte = [];
+  List<ProductModel> filterproducteList = [];
   void filterProducts({required String input}) {
-    filterproducte = products
+    filterproducteList = products
         .where((element) =>
             element.name!.toLowerCase().startsWith(input.toLowerCase()))
         .toList();

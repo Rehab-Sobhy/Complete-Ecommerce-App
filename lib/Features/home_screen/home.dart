@@ -25,142 +25,158 @@ class _HomePageState extends State<HomePage> {
         builder: ((context, state) {
           return Scaffold(
             body: Padding(
-              padding: const EdgeInsets.all(12),
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                  const TextField(
-                    onChanged: (value) {},
-                    decoration: InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(vertical: 0),
-                      prefixIcon: Icon(
-                        Icons.search,
-                      ),
-                      hintText: "search",
-                      enabledBorder: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      hintStyle: TextStyle(color: Colors.black54),
-                    ),
-                  ),
-                  cubit.banners.isEmpty
-                      ? const Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      : SizedBox(
-                          height: 150,
-                          width: double.infinity,
-                          child: PageView.builder(
-                              controller: pageController,
-                              physics: const BouncingScrollPhysics(),
-                              itemCount: cubit.banners.length,
-                              itemBuilder: (context, index) {
-                                return Image.network(
-                                  cubit.banners[index].url!,
-                                  fit: BoxFit.fill,
-                                );
-                              }),
-                        ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Center(
-                    child: SmoothPageIndicator(
-                      controller: pageController,
-                      count: cubit.banners.length,
-                      axisDirection: Axis.vertical,
-                      effect: const SlideEffect(
-                          spacing: 8.0,
-                          radius: 4.0,
-                          dotWidth: 24.0,
-                          dotHeight: 16.0,
-                          paintStyle: PaintingStyle.stroke,
-                          strokeWidth: 1.5,
-                          dotColor: mainColor,
-                          activeDotColor: secondColor),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      const Text(
-                        "Categories",
-                        style: Styles.TextStyle30,
-                      ),
-                      const Spacer(),
-                      const Text(
-                        "View All",
-                        style: Styles.TextStyle20,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  cubit.categories.isEmpty
-                      ? const Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      : SizedBox(
-                          height: 70,
-                          width: double.infinity,
-                          child: ListView.separated(
-                            scrollDirection: Axis.horizontal,
-                            physics: const BouncingScrollPhysics(),
-                            itemCount: cubit.categories.length,
-                            itemBuilder: (context, index) {
-                              return CircleAvatar(
-                                backgroundImage: NetworkImage(
-                                  cubit.categories[index].url!,
-                                ),
-                                radius: 35,
-                              );
+                padding: const EdgeInsets.all(12),
+                child: cubit.filterproducteList.isEmpty
+                    ? ListView(
+                        shrinkWrap: true,
+                        children: [
+                          TextField(
+                            onChanged: (value) {
+                              cubit.filterProducts(input: value);
                             },
-                            separatorBuilder:
-                                (BuildContext context, int index) {
-                              return const SizedBox(
-                                height: 20,
-                              );
-                            },
-                          ),
-                        ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      const Text(
-                        "Product",
-                        style: Styles.TextStyle30,
-                      ),
-                      const Spacer(),
-                      const Text(
-                        "View All",
-                        style: Styles.TextStyle20,
-                      ),
-                      cubit.products.isEmpty
-                          ? const Center(
-                              child: CircularProgressIndicator(),
-                            )
-                          : GridView.builder(
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                mainAxisSpacing: 10,
-                                crossAxisSpacing: 12,
-                                crossAxisCount: 2,
+                            decoration: const InputDecoration(
+                              contentPadding: EdgeInsets.symmetric(vertical: 0),
+                              prefixIcon: Icon(
+                                Icons.search,
                               ),
-                              itemBuilder: (context, int index) {
-                                return Product(
-                                  model: cubit.products[index],
-                                  cubit: cubit,
-                                );
-                              })
-                    ],
-                  ),
-                ],
-              ),
-            ),
+                              hintText: "search",
+                              enabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              hintStyle: TextStyle(color: Colors.black54),
+                            ),
+                          ),
+                          cubit.banners.isEmpty
+                              ? const Center(
+                                  child: CircularProgressIndicator(),
+                                )
+                              : SizedBox(
+                                  height: 150,
+                                  width: double.infinity,
+                                  child: PageView.builder(
+                                      controller: pageController,
+                                      physics: const BouncingScrollPhysics(),
+                                      itemCount: cubit.banners.length,
+                                      itemBuilder: (context, index) {
+                                        return Image.network(
+                                          cubit.banners[index].url!,
+                                          fit: BoxFit.fill,
+                                        );
+                                      }),
+                                ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Center(
+                            child: SmoothPageIndicator(
+                              controller: pageController,
+                              count: cubit.banners.length,
+                              axisDirection: Axis.vertical,
+                              effect: const SlideEffect(
+                                  spacing: 8.0,
+                                  radius: 4.0,
+                                  dotWidth: 24.0,
+                                  dotHeight: 16.0,
+                                  paintStyle: PaintingStyle.stroke,
+                                  strokeWidth: 1.5,
+                                  dotColor: mainColor,
+                                  activeDotColor: secondColor),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              const Text(
+                                "Categories",
+                                style: Styles.TextStyle30,
+                              ),
+                              const Spacer(),
+                              const Text(
+                                "View All",
+                                style: Styles.TextStyle20,
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          cubit.categories.isEmpty
+                              ? const Center(
+                                  child: CircularProgressIndicator(),
+                                )
+                              : SizedBox(
+                                  height: 70,
+                                  width: double.infinity,
+                                  child: ListView.separated(
+                                    scrollDirection: Axis.horizontal,
+                                    physics: const BouncingScrollPhysics(),
+                                    itemCount: cubit.categories.length,
+                                    itemBuilder: (context, index) {
+                                      return CircleAvatar(
+                                        backgroundImage: NetworkImage(
+                                          cubit.categories[index].url!,
+                                        ),
+                                        radius: 35,
+                                      );
+                                    },
+                                    separatorBuilder:
+                                        (BuildContext context, int index) {
+                                      return const SizedBox(
+                                        height: 20,
+                                      );
+                                    },
+                                  ),
+                                ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              const Text(
+                                "Product",
+                                style: Styles.TextStyle30,
+                              ),
+                              const Spacer(),
+                              const Text(
+                                "View All",
+                                style: Styles.TextStyle20,
+                              ),
+                              cubit.products.isEmpty
+                                  ? const Center(
+                                      child: CircularProgressIndicator(),
+                                    )
+                                  : GridView.builder(
+                                      gridDelegate:
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                        mainAxisSpacing: 10,
+                                        crossAxisSpacing: 12,
+                                        crossAxisCount: 2,
+                                      ),
+                                      itemBuilder: (context, int index) {
+                                        return Product(
+                                          model: cubit.products[index],
+                                          cubit: cubit,
+                                        );
+                                      })
+                            ],
+                          ),
+                        ],
+                      )
+                    : GridView.builder(
+                        itemCount: cubit.filterproducteList.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          mainAxisSpacing: 10,
+                          crossAxisSpacing: 12,
+                          crossAxisCount: 2,
+                        ),
+                        itemBuilder: (context, int index) {
+                          return Product(
+                            model: cubit.filterproducteList[index],
+                            cubit: cubit,
+                          );
+                        })),
           );
         }),
         listener: (context, state) {});
