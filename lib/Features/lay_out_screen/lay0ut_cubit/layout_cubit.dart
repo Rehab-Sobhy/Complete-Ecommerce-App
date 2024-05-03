@@ -82,5 +82,6 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
         .where((element) =>
             element.name!.toLowerCase().startsWith(input.toLowerCase()))
         .toList();
+    emit(FilteringProducts());
   }
 }
