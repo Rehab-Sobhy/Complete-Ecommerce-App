@@ -30,7 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
           selectedFontSize: 30,
           unselectedItemColor: Colors.black,
           selectedItemColor: Colors.red,
-          fixedColor: const Color.fromARGB(247, 0, 0, 0),
           backgroundColor: Colors.white,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
