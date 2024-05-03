@@ -1,11 +1,14 @@
+// ignore_for_file: constant_identifier_names, duplicate_ignore
+
 import 'package:flutter/cupertino.dart';
-import 'dart:ui';
 
 abstract class Styles {
+  // ignore: constant_identifier_names
   static const TextStyle18 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,
   );
+  // ignore: constant_identifier_names
   static const TextStyle20 = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.normal,

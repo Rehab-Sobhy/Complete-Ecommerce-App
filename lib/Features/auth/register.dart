@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_commerce_app/Features/account/presentation/views/account_view.dart';
 import 'package:flutter_commerce_app/Features/auth/login.dart';
+import 'package:flutter_commerce_app/Features/auth_cubit/auth_cubit.dart';
+import 'package:flutter_commerce_app/Features/auth_cubit/auth_states.dart';
 import 'package:flutter_commerce_app/core/utils/styles.dart';
-import 'package:flutter_commerce_app/Features/lay_out_screen/home.dart';
-
-import '../auth_cubit/auth_cubit.dart';
-import '../auth_cubit/auth_states.dart';
 
 class RegisterScreen extends StatelessWidget {
   final emailController = TextEditingController();
@@ -31,7 +29,7 @@ class RegisterScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     const CupertinoActivityIndicator(color: mainColor),
-                    SizedBox(
+                    const SizedBox(
                       width: 12.5,
                     ),
                     const Text(
@@ -53,8 +51,8 @@ class RegisterScreen extends StatelessWidget {
                   )));
         } else if (state is RegisterSuccsess) {
           Navigator.pop(context); // عشان يخرج من alertDialog
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => AccountView()));
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const AccountView()));
         }
       },
       builder: (context, state) {
@@ -73,33 +71,33 @@ class RegisterScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           "Sign Up",
                           style: TextStyle(
                               fontSize: 22.5, fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         textFormItem(
                             hintTitle: "User Name", controller: nameController),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         textFormItem(
                             hintTitle: "Email", controller: emailController),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         textFormItem(
                             hintTitle: "Phone", controller: phoneController),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         textFormItem(
                             hintTitle: "Password",
                             controller: passwordController),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         MaterialButton(
@@ -124,13 +122,13 @@ class RegisterScreen extends StatelessWidget {
                                 state is RegisterLoading
                                     ? "Loading..."
                                     : "Register",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16.5,
                                     color: Colors.white),
                               )),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Row(
@@ -138,7 +136,7 @@ class RegisterScreen extends StatelessWidget {
                           children: [
                             const Text('Already have an account? ',
                                 style: TextStyle(color: Colors.black)),
-                            SizedBox(
+                            const SizedBox(
                               width: 4,
                             ),
                             InkWell(

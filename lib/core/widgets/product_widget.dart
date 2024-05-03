@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:flutter_commerce_app/Features/lay_out_screen/lay0ut_cubit/layout_cubit.dart';
 import 'package:flutter_commerce_app/core/utils/styles.dart';
 import 'package:flutter_commerce_app/models/product_model.dart';
@@ -37,16 +37,16 @@ Widget Product({required ProductModel model, required LayOutCubit cubit}) {
                     fit: BoxFit.scaleDown,
                     child: Text(
                       "${model.price!} \$",
-                      style: TextStyle(fontSize: 13),
+                      style: const TextStyle(fontSize: 13),
                     )),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Text(
                     "${model.oldPrice!} \$",
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.grey,
                         fontSize: 12.5,
                         decoration: TextDecoration.lineThrough),
@@ -57,7 +57,7 @@ Widget Product({required ProductModel model, required LayOutCubit cubit}) {
           ),
           GestureDetector(
             onTap: (() {}),
-            child: Icon(
+            child: const Icon(
               Icons.favorite,
             ),
           )

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, camel_case_types
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -30,12 +30,12 @@ class Login_Screen extends StatelessWidget {
                 duration: const Duration(seconds: 1),
                 curve: Curves.easeIn,
                 child: Row(
-                  children: [
+                  children: const [
                     CupertinoActivityIndicator(color: mainColor),
-                    const SizedBox(
+                    SizedBox(
                       width: 12.5,
                     ),
-                    const Text(
+                    Text(
                       "wait",
                       style: TextStyle(fontWeight: FontWeight.w500),
                     ),
