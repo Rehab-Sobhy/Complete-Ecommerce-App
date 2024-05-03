@@ -7,7 +7,7 @@ import 'package:flutter_commerce_app/models/category.dart';
 import 'package:flutter_commerce_app/models/product_model.dart';
 import 'package:flutter_commerce_app/models/user_model.dart';
 import 'package:flutter_commerce_app/shared/shared.dart';
-import 'package:http/http.dart' as https;
+import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
 class LayOutCubit extends Cubit<LayoutCubitState> {
@@ -18,7 +18,7 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
   List<ProductModel> products = [];
   List<CategoriesModel> categories = [];
   void getData() async {
-    Response response = await https
+    Response response = await http
         .get(Uri.parse("https://student.valuxapps.com/api/profile"), headers: {
       'Authorization': token!,
       "lang": "en",
@@ -31,9 +31,23 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
       emit(GetFailed(error: responseData['message']));
   }
 
-  Future<void> getBannersData() async {
+  // Future<void> getBannersData() async {
+  //   Response response =
+  //       await https.get(Uri.parse("https://student.valuxapps.com/api/banners"));
+  //   final responseBody = jsonDecode(response.body);
+  //   if (responseBody['status'] == true) {
+  //     for (var item in responseBody['data']) {
+  //       banners.add(BannerModel.fromJson(data: item));
+  //     }
+  //     emit(GetBannerSuccess());
+  //   } else {
+  //     emit(GetBannerFailed());
+  //   }
+  // }
+
+  void getBannersData() async {
     Response response =
-        await https.get(Uri.parse("https://student.valuxapps.com/api/banners"));
+        await http.get(Uri.parse("https://student.valuxapps.com/api/banners"));
     final responseBody = jsonDecode(response.body);
     if (responseBody['status'] == true) {
       for (var item in responseBody['data']) {
@@ -46,7 +60,7 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
   }
 
   Future<void> getCategoriesData() async {
-    Response response = await https
+    Response response = await http
         .get(Uri.parse("https://student.valuxapps.com/api/categories"));
     final responseBody = jsonDecode(response.body);
     if (responseBody['status'] == true) {
@@ -60,7 +74,7 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
   }
 
   Future<void> getProductsData() async {
-    Response response = await https
+    Response response = await http
         .get(Uri.parse("https://student.valuxapps.com/api/home"), headers: {
       'Authorization': token!,
       "lang": "en",
