@@ -68,7 +68,7 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
     final responseBody = jsonDecode(response.body);
     if (responseBody['status'] == true) {
       for (var item in responseBody['data']['products']) {
-        banners.add(BannerModel.fromJson(data: item));
+        products.add(ProductModel.fromJson(data: item));
       }
       emit(GetProductSuccess());
     } else {

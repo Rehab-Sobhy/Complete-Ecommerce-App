@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_commerce_app/core/utils/styles.dart';
 import 'package:flutter_commerce_app/Features/lay_out_screen/lay0ut_cubit/layout_cubit.dart';
 import 'package:flutter_commerce_app/Features/lay_out_screen/lay0ut_cubit/layout_cubit_states.dart';
 import 'package:flutter_commerce_app/core/widgets/custom_search_text_field.dart';
+import 'package:flutter_commerce_app/core/widgets/product_widget.dart';
+import 'package:flutter_commerce_app/models/product_model.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomePage extends StatefulWidget {
@@ -75,6 +76,7 @@ class _HomePageState extends State<HomePage> {
                         "Categories",
                         style: Styles.TextStyle30,
                       ),
+                      const Spacer(),
                       const Text(
                         "View All",
                         style: Styles.TextStyle20,
@@ -89,16 +91,18 @@ class _HomePageState extends State<HomePage> {
                           child: CircularProgressIndicator(),
                         )
                       : SizedBox(
-                          height: 150,
+                          height: 70,
                           width: double.infinity,
                           child: ListView.separated(
                             scrollDirection: Axis.horizontal,
                             physics: const BouncingScrollPhysics(),
                             itemCount: cubit.categories.length,
                             itemBuilder: (context, index) {
-                              return Image.network(
-                                cubit.categories[index].url!,
-                                fit: BoxFit.fill,
+                              return CircleAvatar(
+                                backgroundImage: NetworkImage(
+                                  cubit.categories[index].url!,
+                                ),
+                                radius: 35,
                               );
                             },
                             separatorBuilder:
@@ -111,6 +115,36 @@ class _HomePageState extends State<HomePage> {
                         ),
                   const SizedBox(
                     height: 20,
+                  ),
+                  Row(
+                    children: [
+                      const Text(
+                        "Product",
+                        style: Styles.TextStyle30,
+                      ),
+                      const Spacer(),
+                      const Text(
+                        "View All",
+                        style: Styles.TextStyle20,
+                      ),
+                      cubit.products.isEmpty
+                          ? const Center(
+                              child: CircularProgressIndicator(),
+                            )
+                          : GridView.builder(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                mainAxisSpacing: 10,
+                                crossAxisSpacing: 12,
+                                crossAxisCount: 2,
+                              ),
+                              itemBuilder: (context, int index) {
+                                return Product(
+                                  model: cubit.products[index],
+                                  cubit: cubit,
+                                );
+                              })
+                    ],
                   ),
                 ],
               ),
