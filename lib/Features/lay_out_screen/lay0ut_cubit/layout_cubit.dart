@@ -75,4 +75,12 @@ class LayOutCubit extends Cubit<LayoutCubitState> {
       emit(GetProductFailed());
     }
   }
+
+  List<ProductModel> filterproducte = [];
+  void filterProducts({required String input}) {
+    filterproducte = products
+        .where((element) =>
+            element.name!.toLowerCase().startsWith(input.toLowerCase()))
+        .toList();
+  }
 }

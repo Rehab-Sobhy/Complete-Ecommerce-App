@@ -29,7 +29,19 @@ class _HomePageState extends State<HomePage> {
               child: ListView(
                 shrinkWrap: true,
                 children: [
-                  CustomSearchTextField(OnPressed: () {}),
+                  const TextField(
+                    onChanged: (value) {},
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(vertical: 0),
+                      prefixIcon: Icon(
+                        Icons.search,
+                      ),
+                      hintText: "search",
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      hintStyle: TextStyle(color: Colors.black54),
+                    ),
+                  ),
                   cubit.banners.isEmpty
                       ? const Center(
                           child: CircularProgressIndicator(),
