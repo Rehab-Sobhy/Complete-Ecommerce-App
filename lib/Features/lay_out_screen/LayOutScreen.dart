@@ -33,11 +33,14 @@ class _HomeScreenState extends State<HomeScreen> {
           fixedColor: const Color.fromARGB(247, 0, 0, 0),
           backgroundColor: Colors.white,
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home)),
-            BottomNavigationBarItem(icon: Icon(Icons.category)),
-            BottomNavigationBarItem(icon: Icon(Icons.favorite)),
-            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_checkout)),
-            BottomNavigationBarItem(icon: Icon(Icons.person)),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.category), label: "Category"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.favorite), label: "Favorite"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_cart_checkout), label: "Cart"),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Account"),
           ],
           onTap: (index) {
             setState(() {
