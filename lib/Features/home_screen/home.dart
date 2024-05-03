@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               const Text(
                                 "Product",
-                                style: Styles.TextStyle30,
+                                style: Styles.TextStyle20,
                               ),
                               const Spacer(),
                               const Text(
