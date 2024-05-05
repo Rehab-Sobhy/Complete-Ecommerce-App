@@ -30,3 +30,7 @@ class GetProductFailed extends LayoutCubitState {}
 class GetProductLoading extends LayoutCubitState {}
 
 class FilteringProducts extends LayoutCubitState {}
+
+class GetFavoritesSuccessState extends LayoutCubitState {}
+
+class FailedToGetFavoritesState extends LayoutCubitState {}
