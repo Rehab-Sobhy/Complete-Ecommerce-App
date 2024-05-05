@@ -1,10 +1,12 @@
 class CategoriesModel {
   String? id;
   String? url;
+  String? title;
 
   CategoriesModel.fromJson({required Map<String, dynamic> data}) {
     id = data['id'];
     url = data['url'];
+    title = data['title'];
   }
 
   //method to map
@@ -13,6 +15,7 @@ class CategoriesModel {
     return {
       'id': id,
       'url': url,
+      'title': title,
     };
   }
 }
